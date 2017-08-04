@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.1/angular.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.1/angular-sanitize.min.js"></script>
+  <!-- BEGIN disable refresh -->
+  <script src="example.js"></script>
+  <style>
+    .done-true{
+      color:green;
+    }
+    .done-false{
+      color:black;
+    }
+  </style>
+
+</head>
+
+<body ng-app="app">
+  <section ng-controller="mainController2">
+    <nav>
+      Total task are : {{lists.length}}  and Remainings are : {{remaining()}}
+
+      <ul>
+        <li ng-repeat="list in lists track by $index">
+            <input type="checkbox" ng-model="list.done">
+            <span  class='done-{{list.done}}'> {{list.text}} </span>
+        </li>
+      </ul>
+    </nav>
+
+    <input type='input' ng-model="taskname" placeholder="Enter New Task" />
+    <input type='button' ng-click="addList()" value='Add Task' />
+  </section>
+    
+</body>
+</html>
